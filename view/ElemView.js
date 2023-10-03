@@ -1,28 +1,35 @@
 class ElemView {
+    #index;//egész szám
 
-    constructor(SzuloElem) {
+    constructor(SzuloElem, index) {
         this.SzuloElem = SzuloElem;
+        this.#index = index;
+        //gyakori alkalmazás
+        this.kattinthato = true;
         //console.log("elérhető az elemview");
         this.#htmlOsszerak();
         this.elem = $(".elem:last-child");
 
-        console.log(this.elem);
+        //console.log(this.elem);
         this.pElem = this.elem.children("p");
 
-        
         this.elem.on("click", () => {
-            this.#esemenyTrigger("kivalszt");
+            if (this.kattinthato) {
+                this.#esemenyTrigger("kivalaszt");
+                //nem lehet többet rá kattintani
+                this.kattinthato = false;
+            }
             //console.log("Katt")
         })
-
+    }
+    getIndex() {
+        return this.#index;
     }
 
     #htmlOsszerak() {
-        let txt = `<div class="elem"><p></p></div>`;
+        let txt = `<div class="elem col-sm-4"><p></p></div>`;
         txt += "";
-
         this.SzuloElem.append(txt);
-
     }
 
     setErtek(jel) {
