@@ -34,7 +34,7 @@ class Modell {
             return "X nyert";
         } else if (this.#lepesSzam === 9) {
             return "Döntetlen";
-        } 
+        }
         return "Tovább";
     }
 
@@ -53,6 +53,18 @@ class Modell {
         vEll += "@";
         console.log(vEll.indexOf("OOO"), vEll.indexOf("XXX"));
         return vEll;
+    }
+
+    #fuggolegesGyozelem() {
+        let fEll = "";
+        for (let i = 0; i < 3; i++) {
+            fEll +=
+                this.#lista[i] +
+                this.#lista[i + 3] +
+                this.#lista[i + 6];
+            fEll += "@";
+        }
+        return fEll;
     }
 
     getAllapot() {
