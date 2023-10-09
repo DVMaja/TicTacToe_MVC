@@ -18,7 +18,9 @@ class Modell {
         //beállítja a sset állapotot
         if (this.#allapot === "X") {
             this.#allapot = "O";
-        } else { this.#allapot = "X"; }
+        } else {
+            this.#allapot = "X";
+        }
         this.#lista[index] = this.#allapot;
         console.log(this.#lista);
         this.#lepesSzam++;
@@ -26,15 +28,13 @@ class Modell {
 
     getVegeVanE() {
         let vEll = this.#vizSzintesGyozelem();
-        if (vEll.indexOf("OOO")> -1) {
+        if (vEll.indexOf("OOO") > -1) {
             return "O nyert";
-        }else if (vEll.indexOf("XXX")> -1) {
+        } else if (vEll.indexOf("XXX") > -1) {
             return "X nyert";
-        }else if (this.#lepesSzam === 9) {
+        } else if (this.#lepesSzam === 9) {
             return "Döntetlen";
-        }else if (this.#lepesSzam == 9) {
-            return true;
-        }
+        } 
         return "Tovább";
     }
 
@@ -43,10 +43,10 @@ class Modell {
         //véginmegyünk a listán és stringet képezünk, úgy 
         //hogy minden harmadik urtán teszünk egy speciális karaktert @
 
-        let vEll = this.#lista[0];
+        let vEll = "";
         for (let i = 0; i < 9; i++) {
-            vEll += this.#lista
-            if (i % 3 == 2) {
+            vEll += this.#lista[i];
+            if (i % 3 === 2) {
                 vEll += "@";
             }
         }
