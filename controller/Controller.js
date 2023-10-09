@@ -1,6 +1,7 @@
 import Modell from "../modell/Modell.js";
 import ElemView from "../view/ElemView.js";
-import JatekterView from "../view/JatekterView.js";
+//import JatekterView from "../view/JatekterView.js";
+
 class Controller {
     #elemLista = [];
 
@@ -17,10 +18,10 @@ class Controller {
             //A viewnak meghívjuk a a set elem metódusát            
             //azt az objektumot jeleni amely kiváltotta az eseményt.
             this.MODELL.setAllpot(event.detail.getIndex());
-            event.detail.setErtek(this.MODELL.getAllapot());   
-            
+            event.detail.setErtek(this.MODELL.getAllapot());
+
             //játék vége ellenörzése            
-            if (this.MODELL.getVegeVanE() != "tovább") {
+            if (this.MODELL.getVegeVanE() !== "tovább") {
                 console.log(this.MODELL.getVegeVanE());
             }
         })
