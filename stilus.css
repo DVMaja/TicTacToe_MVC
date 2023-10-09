@@ -1,7 +1,6 @@
 body {
   width: 80%;
   padding: 0;
-
 }
 
 .elem {
@@ -25,4 +24,7 @@ body {
   border: 5px solid darkolivegreen;*/
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
+}
+.infoTarolo {
+  border: 2px double blue;
 }
